@@ -1,0 +1,89 @@
+### ✅ Registro de Usuario
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "email": "user2@gmail.com",
+  "password": "123456",
+  "role": "user"
+}
+
+###
+
+### 🔑 Login de Usuario (Obtener Token)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "login": "user2@gmail.com",
+  "password": "123456"
+}
+
+###
+
+### 📌 Obtener Perfil (Necesita Token)
+GET http://localhost:3000/auth/profile
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📅 Crear Evento (Necesita Token)
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+  "title": "Concierto de Rock",
+  "description": "Evento musical en vivo",
+  "date": "2025-04-05",
+  "limit": 100
+}
+
+###
+
+### 📅 Listar Todos los Eventos del Usuario (Necesita Token)
+GET http://localhost:3000/events
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📅 Obtener un Evento por ID (Necesita Token)
+GET http://localhost:3000/events/{{EVENT_ID}}
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📅 Actualizar Evento (Necesita Token)
+PATCH http://localhost:3000/events/{{EVENT_ID}}
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+  "title": "Concierto de Jazz",
+  "limit": 50
+}
+
+###
+
+### 📅 Eliminar Evento (Necesita Token)
+DELETE http://localhost:3000/events/{{EVENT_ID}}
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📌 Hacer Reserva en un Evento (Necesita Token)
+POST http://localhost:3000/reservations/{{EVENT_ID}}
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📌 Listar Reservas del Usuario (Necesita Token)
+GET http://localhost:3000/reservations
+Authorization: Bearer {{TOKEN}}
+
+###
+
+### 📌 Cancelar Reserva (Necesita Token)
+DELETE http://localhost:3000/reservations/{{RESERVATION_ID}}
+Authorization: Bearer {{TOKEN}}

@@ -49,13 +49,13 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`sticky top-0 z-50 shadow-md transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-r from-emerald-800 to-indigo-200 text-black'}`}
+      className={`sticky top-0 z-50 shadow-md transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-r from-emerald-900 to-indigo-300 text-white' : 'bg-gradient-to-r from-emerald-800 to-indigo-200 text-black'}`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-tight">
           <Link href="/dashboard" className="hover:text-gray-300 transition-colors">
-            🌟 Eventos App
+           Eventos App
           </Link>
         </div>
 

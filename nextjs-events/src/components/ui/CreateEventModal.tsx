@@ -25,7 +25,7 @@ const CreateEventModal: React.FC<CreateEventModalProps> = ({ onClose, onEventCre
       const response = await api.post('/events', {
         title,
         description,
-        date,
+        date: new Date(date).toISOString().split('T')[0],
         limit,
       }, {
         headers: { Authorization: `Bearer ${token}` }

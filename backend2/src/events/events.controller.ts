@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Delete, Patch, Request, UseGuards } from '@nestjs/common';
 import { EventsService } from './events.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('events')
 @UseGuards(JwtAuthGuard) // 🔒 Este protege TODAS las rutas de abajo

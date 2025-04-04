@@ -19,6 +19,7 @@ type Event = {
 const ExplorePage = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null); // Estado para edición de eventos
   const token = useAuthStore((state) => state.token);
 
   const fetchEvents = async () => {
@@ -43,6 +44,14 @@ const ExplorePage = () => {
     toast.success('Evento creado con éxito.');
   };
 
+  const handleEventUpdated = (updatedEvent: Event) => {
+    setEvents(prevEvents =>
+      prevEvents.map(event => (event._id === updatedEvent._id ? updatedEvent : event))
+    );
+    setEditingEvent(null);
+    toast.success('Evento actualizado con éxito.');
+  };
+
   const handleDelete = async (eventId: string) => {
     try {
       await api.delete(`/events/${eventId}`, {
@@ -53,6 +62,23 @@ const ExplorePage = () => {
     } catch (error) {
       console.error('Error al eliminar evento', error);
       toast.error('Error al eliminar el evento.');
+    }
+  };
+
+  const handleEdit = (event: Event) => {
+    setEditingEvent(event);
+  };
+
+  const handleUpdateEvent = async (updatedEvent: Event) => {
+    try {
+      const response = await api.patch(`/events/${updatedEvent._id}`, updatedEvent, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      handleEventUpdated(response.data);
+    } catch (error) {
+      console.error('Error al actualizar evento', error);
+      toast.error('Error al actualizar el evento.');
     }
   };
 
@@ -86,6 +112,12 @@ const ExplorePage = () => {
               <p><strong>Límite:</strong> {event.limit}</p>
               <div className="absolute top-2 right-2 flex space-x-2">
                 <button
+                  className="bg-green-500 text-white p-1 rounded"
+                  onClick={() => handleEdit(event)}
+                >
+                  ✏️
+                </button>
+                <button
                   className="bg-red-500 text-white p-1 rounded"
                   onClick={() => handleDelete(event._id)}
                 >
@@ -101,6 +133,54 @@ const ExplorePage = () => {
             onClose={() => setShowModal(false)}
             onEventCreated={handleEventCreated}
           />
+        )}
+
+        {editingEvent && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded shadow-lg w-full max-w-lg dark:bg-slate-800">
+              <h2 className="text-2xl mb-4 text-blue-600">Editar Evento</h2>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                handleUpdateEvent(editingEvent);
+              }}>
+                <input
+                  type="text"
+                  value={editingEvent.title}
+                  onChange={e => setEditingEvent({ ...editingEvent, title: e.target.value })}
+                  className="w-full p-3 border border-gray-300 rounded mb-3"
+                  required
+                />
+                <textarea
+                  value={editingEvent.description}
+                  onChange={e => setEditingEvent({ ...editingEvent, description: e.target.value })}
+                  className="w-full p-3 border border-gray-300 rounded mb-3"
+                  required
+                />
+                <input
+                  type="date"
+                  value={editingEvent.date.split('T')[0]}
+                  onChange={e => setEditingEvent({ ...editingEvent, date: e.target.value })}
+                  className="w-full p-3 border border-gray-300 rounded mb-3"
+                  required
+                />
+                <input
+                  type="number"
+                  value={editingEvent.limit}
+                  onChange={e => setEditingEvent({ ...editingEvent, limit: Number(e.target.value) })}
+                  className="w-full p-3 border border-gray-300 rounded mb-3"
+                  required
+                />
+                <div className="flex justify-end space-x-2">
+                  <button className="bg-gray-500 text-white px-4 py-2 rounded" onClick={() => setEditingEvent(null)}>
+                    Cancelar
+                  </button>
+                  <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
       </div>
     </>

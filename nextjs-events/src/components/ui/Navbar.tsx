@@ -77,14 +77,11 @@ const Navbar = () => {
         {/* Links */}
         <div className={`md:flex items-center space-x-6 ${menuOpen ? 'block' : 'hidden'} md:block`}>
           <Link href="/dashboard" className="hover:text-gray-300 transition-colors">Inicio</Link>
-          <Link href="/calendar" className="hover:text-gray-300 transition-colors">Calendario</Link>
-          <Link href="/explore" className="hover:text-gray-300 transition-colors">Explorar</Link>
+          <Link href="/eventos" className="hover:text-gray-300 transition-colors">Eventos</Link>
 
-          {/* Notificación y Avatar */}
           <div className="flex items-center space-x-4 relative">
             <BellIcon className="h-6 w-6 cursor-pointer hover:text-gray-300" />
 
-            {/* Botón de Tema Oscuro / Claro */}
             <button onClick={handleThemeToggle} className="focus:outline-none">
               {isDarkMode ? (
                 <SunIcon className="h-6 w-6 text-yellow-400" />

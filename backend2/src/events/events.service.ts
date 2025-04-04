@@ -17,6 +17,10 @@ export class EventsService {
     return this.eventModel.find({ userId }).exec();
   }
 
+  async findAllEvents(): Promise<Event[]> {  // Nueva función para obtener todos los eventos
+    return this.eventModel.find().exec();
+  }
+
   async findOne(id: string): Promise<Event> {
     const event = await this.eventModel.findById(id).exec();
     if (!event) throw new NotFoundException('Evento no encontrado');

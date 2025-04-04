@@ -6,15 +6,15 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 4000;
 
   app.useGlobalPipes(new ValidationPipe());
 
   // Configuración básica de Swagger
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const config = new DocumentBuilder()
-    .setTitle('API de Productos')
-    .setDescription('API REST para gestión de productos')
+    .setTitle('API de reservas')
+    .setDescription('API REST para gestión de eventos y reservas')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
@@ -23,7 +23,7 @@ async function bootstrap() {
 
   // Habilitar CORS globalmente
   app.enableCors({
-    origin: 'http://localhost:4200', // O un array de orígenes permitidos
+    origin: 'http://localhost:3000', // O un array de orígenes permitidos
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });

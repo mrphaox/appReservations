@@ -1,10 +1,10 @@
 ### ✅ Registro de Usuario
-POST http://localhost:3000/users/register
+POST http://localhost:4000/users/register
 Content-Type: application/json
 
 {
-  "username": "user2",
-  "email": "user2@gmail.com",
+  "username": "user7",
+  "email": "user7@gmail.com",
   "password": "123456",
   "role": "user"
 }
@@ -12,26 +12,26 @@ Content-Type: application/json
 ###
 
 ### 🔑 Login de Usuario (Obtener Token)
-POST http://localhost:3000/auth/login
+POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-  "login": "user2@gmail.com",
+  "login": "user1@gmail.com",
   "password": "123456"
 }
 
 ###
 
 ### 📌 Obtener Perfil (Necesita Token)
-GET http://localhost:3000/auth/profile
-Authorization: Bearer {{TOKEN}}
+GET http://localhost:4000/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwic3ViIjoiNjdlZjMwODhjMDk1MTYxYWM1NDg0OTlhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzE5NjksImV4cCI6MTc0MzczNTU2OX0.hTNeu-kPwZYMjmLjDZsJUJbL9AhxqI41GAFdUKFxWCA
 
 ###
 
 ### 📅 Crear Evento (Necesita Token)
-POST http://localhost:3000/events
+POST http://localhost:4000/events
 Content-Type: application/json
-Authorization: Bearer {{TOKEN}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
 
 {
   "title": "Concierto de Rock",
@@ -43,21 +43,24 @@ Authorization: Bearer {{TOKEN}}
 ###
 
 ### 📅 Listar Todos los Eventos del Usuario (Necesita Token)
-GET http://localhost:3000/events
-Authorization: Bearer {{TOKEN}}
+GET http://localhost:4000/events
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
 
-###
+### 📅 Obtener Todos los Eventos de Todos los Usuarios
+GET http://localhost:4000/events/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDQ0MDEsImV4cCI6MTc0Mzc0ODAwMX0.hrr1dwn9AhnNyp2QmcyGeymRlrcx98cihlrtkIo0U2
+
 
 ### 📅 Obtener un Evento por ID (Necesita Token)
-GET http://localhost:3000/events/{{EVENT_ID}}
-Authorization: Bearer {{TOKEN}}
+GET http://localhost:4000/events/67ef3d18e06392ae16f68c53
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwic3ViIjoiNjdlZjMwODhjMDk1MTYxYWM1NDg0OTlhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzE5NjksImV4cCI6MTc0MzczNTU2OX0.hTNeu-kPwZYMjmLjDZsJUJbL9AhxqI41GAFdUKFxWCA
 
 ###
 
 ### 📅 Actualizar Evento (Necesita Token)
-PATCH http://localhost:3000/events/{{EVENT_ID}}
+PATCH http://localhost:4000/events/67ef3d18e06392ae16f68c53
 Content-Type: application/json
-Authorization: Bearer {{TOKEN}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
 
 {
   "title": "Concierto de Jazz",
@@ -67,23 +70,23 @@ Authorization: Bearer {{TOKEN}}
 ###
 
 ### 📅 Eliminar Evento (Necesita Token)
-DELETE http://localhost:3000/events/{{EVENT_ID}}
+DELETE http://localhost:4000/events/67ef3d18e06392ae16f68c53
 Authorization: Bearer {{TOKEN}}
 
 ###
 
 ### 📌 Hacer Reserva en un Evento (Necesita Token)
-POST http://localhost:3000/reservations/{{EVENT_ID}}
-Authorization: Bearer {{TOKEN}}
+POST http://localhost:4000/reservations/67ef3d18e06392ae16f68c53
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzIwODAsImV4cCI6MTc0MzczNTY4MH0.HRd-BH6iSQRbHVU75KySDmt8mOQTm3PRjFOAThRNo2k
 
 ###
 
 ### 📌 Listar Reservas del Usuario (Necesita Token)
-GET http://localhost:3000/reservations
-Authorization: Bearer {{TOKEN}}
+GET http://localhost:4000/reservations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzIwODAsImV4cCI6MTc0MzczNTY4MH0.HRd-BH6iSQRbHVU75KySDmt8mOQTm3PRjFOAThRNo2k
 
 ###
 
 ### 📌 Cancelar Reserva (Necesita Token)
-DELETE http://localhost:3000/reservations/{{RESERVATION_ID}}
+DELETE http://localhost:4000/reservations/{{RESERVATION_ID}}
 Authorization: Bearer {{TOKEN}}

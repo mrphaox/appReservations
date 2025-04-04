@@ -19,7 +19,7 @@ export class ReservationsService {
 
    // if (event.participants.includes(userId)) {
    //   throw new BadRequestException('Ya estás registrado en este evento.');
-   // }
+   //  }
 
     if (event.participants.length >= event.limit) {
       throw new BadRequestException('El evento ya está lleno.');

@@ -32,6 +32,7 @@ const CreateEventModal: React.FC<CreateEventModalProps> = ({ onClose, onEventCre
       });
 
       onEventCreated(response.data);
+      onClose();
     } catch (err) {
       console.error('Error al crear evento', err);
     } finally {
@@ -40,30 +41,34 @@ const CreateEventModal: React.FC<CreateEventModalProps> = ({ onClose, onEventCre
   };
 
   return (
-    <div className="fixed inset-0 bg-emerald-600 bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded shadow-lg w-full max-w-lg">
-        <h2 className="text-2xl mb-4">Crear Evento</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50" onClick={onClose}>
+      <div 
+        className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-xl transform transition-all duration-300 scale-100 hover:scale-105"
+        onClick={e => e.stopPropagation()}
+      >
+        <h2 className="text-3xl font-bold mb-6 text-center text-emerald-500">Crear Evento</h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
             placeholder="Título"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded"
+            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded bg-gray-100 dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring focus:ring-emerald-500"
             required
           />
           <textarea
             placeholder="Descripción"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded"
+            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded bg-gray-100 dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring focus:ring-emerald-500"
+            rows={4}
             required
           />
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded"
+            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded bg-gray-100 dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring focus:ring-emerald-500"
             required
           />
           <input
@@ -71,23 +76,23 @@ const CreateEventModal: React.FC<CreateEventModalProps> = ({ onClose, onEventCre
             placeholder="Límite de Personas"
             value={limit}
             onChange={(e) => setLimit(Number(e.target.value))}
-            className="w-full p-3 border border-gray-300 rounded"
+            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded bg-gray-100 dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring focus:ring-emerald-500"
             required
           />
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-between mt-6">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-gray-400 text-white rounded"
+              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded"
+              className="px-6 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition"
               disabled={loading}
             >
-              {loading ? 'Creando...' : 'Crear'}
+              {loading ? 'Creando...' : 'Crear Evento'}
             </button>
           </div>
         </form>

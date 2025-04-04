@@ -40,7 +40,7 @@ const CreateEventModal: React.FC<CreateEventModalProps> = ({ onClose, onEventCre
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-emerald-600 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded shadow-lg w-full max-w-lg">
         <h2 className="text-2xl mb-4">Crear Evento</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

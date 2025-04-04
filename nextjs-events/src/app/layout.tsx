@@ -31,10 +31,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientProvider>
-          <AuthGuard>
           {token && <Navbar />}
             {children}
-          </AuthGuard>
         </ClientProvider>
       </body>
     </html>

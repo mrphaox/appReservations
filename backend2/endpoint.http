@@ -44,11 +44,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 
 ### 📅 Listar Todos los Eventos del Usuario (Necesita Token)
 GET http://localhost:4000/events
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc
 
-### 📅 Obtener Todos los Eventos de Todos los Usuarios
+### 📅 Obtener Todos los Eventos (Protegido)
 GET http://localhost:4000/events/all
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDQ0MDEsImV4cCI6MTc0Mzc0ODAwMX0.hrr1dwn9AhnNyp2QmcyGeymRlrcx98cihlrtkIo0U2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc
 
 
 ### 📅 Obtener un Evento por ID (Necesita Token)
@@ -67,8 +67,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
   "limit": 50
 }
 
-###
-
 ### 📅 Eliminar Evento (Necesita Token)
 DELETE http://localhost:4000/events/67ef3d18e06392ae16f68c53
 Authorization: Bearer {{TOKEN}}
@@ -83,10 +81,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 
 ### 📌 Listar Reservas del Usuario (Necesita Token)
 GET http://localhost:4000/reservations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzIwODAsImV4cCI6MTc0MzczNTY4MH0.HRd-BH6iSQRbHVU75KySDmt8mOQTm3PRjFOAThRNo2k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc
 
-###
+### 📌 Listar Todas las Reservas (Protegido)
+GET http://localhost:4000/reservations/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc
+
 
 ### 📌 Cancelar Reserva (Necesita Token)
-DELETE http://localhost:4000/reservations/{{RESERVATION_ID}}
-Authorization: Bearer {{TOKEN}}
+DELETE http://localhost:4000/reservations/67ef712d9d4b48612fdcb4d7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc

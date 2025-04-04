@@ -9,7 +9,7 @@ import { Reservation, ReservationSchema } from './schema/reservation.schema';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Reservation.name, schema: ReservationSchema }]),
-    EventsModule, // Para poder acceder a eventos desde reservas
+    EventsModule, 
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService],

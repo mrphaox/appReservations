@@ -24,3 +24,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+  @apply transition-colors duration-500;
+}
+
+.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --highlight: #10b981;
+  --highlight-hover: #059669;
+}
+
+.light {
+  --bg-primary: #f7fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --highlight: #4299e1;
+  --highlight-hover: #3182ce;
+}

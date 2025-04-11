@@ -30,6 +30,8 @@ export class EventsService {
   async update(id: string, updateData): Promise<Event> {
     const event = await this.eventModel.findByIdAndUpdate(id, updateData, { new: true }).exec();
     if (!event) throw new NotFoundException('Evento no encontrado');
+    if (!event) throw new BadRequestException('Error al actualizar el evento');
+    if (event.userId !== updateData.userId) throw new BadRequestException('No tienes permiso para actualizar este evento');
     return event;
   }
 

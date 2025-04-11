@@ -3,8 +3,8 @@ POST http://localhost:4000/users/register
 Content-Type: application/json
 
 {
-  "username": "user7",
-  "email": "user7@gmail.com",
+  "username": "user9",
+  "email": "user9@gmail.com",
   "password": "123456",
   "role": "user"
 }
@@ -16,7 +16,7 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-  "login": "user1@gmail.com",
+  "login": "user10@gmail.com",
   "password": "123456"
 }
 
@@ -24,17 +24,17 @@ Content-Type: application/json
 
 ### 📌 Obtener Perfil (Necesita Token)
 GET http://localhost:4000/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwic3ViIjoiNjdlZjMwODhjMDk1MTYxYWM1NDg0OTlhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzE5NjksImV4cCI6MTc0MzczNTU2OX0.hTNeu-kPwZYMjmLjDZsJUJbL9AhxqI41GAFdUKFxWCA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI5Iiwic3ViIjoiNjdmMDRjODMyYWM4ZWE0NDU3NDNmZmQ5Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM4MDE0ODIsImV4cCI6MTc0MzgwNTA4Mn0.AJNGwi-pNJZ7-vgH73T3u6GOBPcq82BbD9s4abBv2G8
 
 ###
 
 ### 📅 Crear Evento (Necesita Token)
 POST http://localhost:4000/events
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI5Iiwic3ViIjoiNjdmMDRjODMyYWM4ZWE0NDU3NDNmZmQ5Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM4MDIxMDMsImV4cCI6MTc0MzgwNTcwM30.bwMUmg8rLuz3YY5EXfAy5qB_lGN0mM91FjkWzr1zswk
 
 {
-  "title": "Concierto de Rock",
+  "title": "Concierto de Rock2",
   "description": "Evento musical en vivo",
   "date": "2025-04-05",
   "limit": 100
@@ -44,23 +44,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 
 ### 📅 Listar Todos los Eventos del Usuario (Necesita Token)
 GET http://localhost:4000/events
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NzkxOTAsImV4cCI6MTc0Mzc4Mjc5MH0.hyZPBA1OX7SvufOezNlLwG2r6IheB4B_zYTjHKovEvc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI5Iiwic3ViIjoiNjdmMDRjODMyYWM4ZWE0NDU3NDNmZmQ5Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM4MDE0ODIsImV4cCI6MTc0MzgwNTA4Mn0.AJNGwi-pNJZ7-vgH73T3u6GOBPcq82BbD9s4abBv2G8
 
 ### 📅 Obtener Todos los Eventos (Protegido)
 GET http://localhost:4000/events/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3ODQ5NjAsImV4cCI6MTc0Mzc4ODU2MH0.FkGvzleR4VcoEho7uEPjTVS-FXDLn-9ET7XqYoV8xFo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI5Iiwic3ViIjoiNjdmMDRjODMyYWM4ZWE0NDU3NDNmZmQ5Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM4MDE0ODIsImV4cCI6MTc0MzgwNTA4Mn0.AJNGwi-pNJZ7-vgH73T3u6GOBPcq82BbD9s4abBv2G8
 
 
 ### 📅 Obtener un Evento por ID (Necesita Token)
 GET http://localhost:4000/events/67ef3d18e06392ae16f68c53
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwic3ViIjoiNjdlZjMwODhjMDk1MTYxYWM1NDg0OTlhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3MzE5NjksImV4cCI6MTc0MzczNTU2OX0.hTNeu-kPwZYMjmLjDZsJUJbL9AhxqI41GAFdUKFxWCA
 
-###
-
 ### 📅 Actualizar Evento (Necesita Token)
-PATCH http://localhost:4000/events/67ef3d18e06392ae16f68c53
+PATCH http://localhost:4000/events/67f04f07f0b4059b4712c68b
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3NDM2MjIsImV4cCI6MTc0Mzc0NzIyMn0.n22dSchESFibd5ADxyv5hWASFmdJDC155Nd5Z6PXfo8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMCIsInN1YiI6IjY3ZjA0ZDZjMmFjOGVhNDQ1NzQzZmZlYyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODAyMTI2LCJleHAiOjE3NDM4MDU3MjZ9.q53g_CL9hy_k7DXw1blLLln9bfGTfo8KQiMaGj5x69Y
 
 {
   "title": "Concierto de Jazz",
@@ -73,10 +71,7 @@ Authorization: Bearer {{TOKEN}}
 
 ###
 
-### 📌 Hacer Reserva en un Evento (Necesita Token)
-POST http://localhost:4000/reservations/67ef6abc4fcad65eb5d6c719
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiNjdlZjJiNTAyMzU1YWJkMmI3ODk1MGNmIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDM3ODQ5NjAsImV4cCI6MTc0Mzc4ODU2MH0.FkGvzleR4VcoEho7uEPjTVS-FXDLn-9ET7XqYoV8xFo
-
+x
 ###
 
 ### 📌 Listar Reservas del Usuario (Necesita Token)

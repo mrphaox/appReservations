@@ -38,5 +38,8 @@ export class EventsService {
   async delete(id: string): Promise<void> {
     const result = await this.eventModel.findByIdAndDelete(id).exec();
     if (!result) throw new NotFoundException('Evento no encontrado');
+    if (!result) throw new BadRequestException('Error al eliminar el evento');
+    if (result.userId !== result.userId) throw new BadRequestException('No tienes permiso para eliminar este evento');
+    await result.deleteOne(); // Eliminar el evento de la base de datos
   }
 }
